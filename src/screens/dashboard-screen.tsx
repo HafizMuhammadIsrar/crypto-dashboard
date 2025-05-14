@@ -3,6 +3,8 @@ import { useState } from "react";
 import CoinCard from "@/components/cards/coin-card";
 import { useGetCoins } from "@/hooks/useGetCoins";
 import { Search } from "lucide-react";
+import { Coin } from "@/types/coin";
+import { Input } from "@/components/ui/input";
 
 const DashboardScreen = () => {
   const { data, isLoading, isError } = useGetCoins();
@@ -10,10 +12,10 @@ const DashboardScreen = () => {
 
   // Filter top 20 coins with valid current_price
   const filteredCoins = data
-    ?.filter((item:any) => typeof item.current_price === "number")
-    .sort((a:any, b:any) => b.current_price - a.current_price)
+    ?.filter((item) => typeof item.current_price === "number")
+    .sort((a, b) => b.current_price - a.current_price)
     .slice(0, 20) // Take only top 20 highest priced
-    .filter((item:any) => {
+    .filter((item) => {
       const searchLower = searchTerm.toLowerCase();
       return (
         item.name.toLowerCase().includes(searchLower) ||
@@ -32,24 +34,24 @@ const DashboardScreen = () => {
     <div>
       <h2 className="text-xl font-bold mb-4">Top 20 Cryptocurrencies</h2>
       
-      {/* Search Bar */}
-      <div className="relative mb-6">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+      {/* Search Bar with shadcn/ui Input */}
+      <div className="relative mb-6 w-1/2">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none z-10">
           <Search className="h-5 w-5 text-gray-400" />
         </div>
-        <input
+        <Input
           type="text"
-          className="bg-gray-50 w-[50%] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  pl-10 p-2.5"
+          className="pl-10"
           placeholder="Search by name or symbol..."
           value={searchTerm}
           onChange={handleSearchChange}
         />
       </div>
       
-      {filteredCoins?.length > 0 ? (
+      {filteredCoins && filteredCoins.length > 0 ? (
         <div className="grid mb-4 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {filteredCoins.map((item:any, index:any) => (
-            <CoinCard key={item.id || index} item={item} index={index} />
+          {filteredCoins.map((item: Coin, index: number) => (
+            <CoinCard key={item.id} item={item} index={index} />
           ))}
         </div>
       ) : (
