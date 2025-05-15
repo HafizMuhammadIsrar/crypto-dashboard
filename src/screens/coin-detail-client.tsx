@@ -28,11 +28,13 @@ import {
   ArrowDownIcon,
   InfoIcon,
   DollarSignIcon,
+  ArrowLeft,
 } from "lucide-react";
 import Image from "next/image";
 import CoinDetailSkeleton from "@/components/skeletons/coin-detail-skeleton";
 import { ChartFormattedDataProps } from "@/types/coin";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 export default function CoinDetailClient() {
 const { id } = useParams<{ id: string }>();
@@ -78,7 +80,8 @@ const { id } = useParams<{ id: string }>();
   return (
     <div className="container mx-auto p-4 max-w-4xl">
       {/* Header Card */}
-      <span></span>
+<Link href="/dashboard" className=" flex items-center pb-3 gap-2 " > <ArrowLeft  className=" w-[15px] "  />  </Link>
+      
       <Card className="mb-6">
         <CardHeader className="flex flex-row items-center justify-between pb-2">
           <div className="flex items-center space-x-4">
