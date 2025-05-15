@@ -1,12 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  AudioWaveform,
-  Command,
-  GalleryVerticalEnd,
-  House,
-} from "lucide-react";
+import { Bitcoin, House } from "lucide-react";
 
 import { NavProjects } from "@/components/nav-projects";
 import { TeamSwitcher } from "@/components/team-switcher";
@@ -23,9 +18,9 @@ const data = {
   teams: [
     {
       name: "Crypto Dashboard",
-      logo: GalleryVerticalEnd,
+      logo: Bitcoin,
       plan: "Free",
-    }
+    },
   ],
 
   projects: [

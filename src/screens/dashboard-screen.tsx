@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import { useState } from "react";
 import CoinCard from "@/components/cards/coin-card";
 import { useGetCoins } from "@/hooks/useGetCoins";
-import { Search } from "lucide-react";
+import { LoaderIcon, Search } from "lucide-react";
 import { Coin } from "@/types/coin";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 const DashboardScreen = () => {
   const { data, isLoading, isError } = useGetCoins();
@@ -23,19 +24,25 @@ const DashboardScreen = () => {
       );
     });
 
-  const handleSearchChange = (e:any) => {
-    setSearchTerm(e.target.value);
-  };
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setSearchTerm(e.target.value);
+};
 
-  if (isLoading) return <div>Loading...</div>;
+
+  if (isLoading)
+    return (
+      <div className=" w-full flex justify-center items-center h-screen ">
+        <LoaderIcon className="animate-spin" />
+      </div>
+    );
   if (isError) return <div>Something went wrong while fetching coins.</div>;
 
   return (
     <div>
       <h2 className="text-xl font-bold mb-4">Top 20 Cryptocurrencies</h2>
-      
+
       {/* Search Bar with shadcn/ui Input */}
-      <div className="relative mb-6 w-1/2">
+      <div className="relative mb-6 lg:w-1/2">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none z-10">
           <Search className="h-5 w-5 text-gray-400" />
         </div>
@@ -47,16 +54,20 @@ const DashboardScreen = () => {
           onChange={handleSearchChange}
         />
       </div>
-      
+
       {filteredCoins && filteredCoins.length > 0 ? (
-        <div className="grid mb-4 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {filteredCoins.map((item: Coin, index: number) => (
-            <CoinCard key={item.id} item={item} index={index} />
+        <div className="grid mb-4 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {filteredCoins.map((coin: Coin, index: number) => (
+            <Link href={`/dashboard/coin/${coin.id}`} key={coin.id}>
+              <CoinCard item={coin} index={index} />
+            </Link>
           ))}
         </div>
       ) : (
         <div className="text-center py-8">
-          <p className="text-gray-500">No cryptocurrencies match your search.</p>
+          <p className="text-gray-500">
+            No cryptocurrencies match your search.
+          </p>
         </div>
       )}
     </div>

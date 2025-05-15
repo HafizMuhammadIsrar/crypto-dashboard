@@ -27,3 +27,13 @@ export interface Coin {
   roi: null; // or possibly define `roi` type if available
   last_updated: string;
 }
+
+export interface CoinCardProps {
+  item: Coin;
+  index: number;
+}
+
+export interface ChartFormattedDataProps {
+  date: Date;
+  price: number;
+}
