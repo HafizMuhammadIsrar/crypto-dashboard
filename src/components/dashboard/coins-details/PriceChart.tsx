@@ -34,7 +34,7 @@ const PriceChart = ({ chartFormattedData }: PriceChartProps) => {
         </CardTitle>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className=" px-0 md:px-6 " >
         <div className="w-full overflow-auto h-64">
           <ResponsiveContainer
             className="overflow-auto"

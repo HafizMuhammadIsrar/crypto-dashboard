@@ -7,13 +7,13 @@
 [![CoinGecko API](https://img.shields.io/badge/API-CoinGecko-yellow)](https://www.coingecko.com/en/api)
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com)
 
-A real-time cryptocurrency dashboard built with **Next.js**, **TypeScript**, **TailwindCSS**, **React Query**, and the [CoinGecko API](https://www.coingecko.com/en/api). It features client-side interactivity, SSR/SSG, API caching, global state management, and a clean responsive UI.
+A real-time cryptocurrency dashboard built with **Next.js**, **TypeScript**, **TailwindCSS**, **React Query**, and the [CoinGecko API](https://www.coingecko.com/en/api). It features client-side interactivity, SSR, API caching, and a clean responsive UI.
 
 ---
 
 ## 🚀 Live Demo
 
-👉 [crypto-dashboard.vercel.app](https://crypto-dashboard.vercel.app) ← *(replace with your actual deployment link)*
+👉 [crypto-dashboard.vercel.app](https://crypto-dashboard-ppqo.vercel.app/) 
 
 ---
 
@@ -21,7 +21,7 @@ A real-time cryptocurrency dashboard built with **Next.js**, **TypeScript**, **T
 
 - **Framework**: Next.js 13+ (App Router)
 - **Language**: TypeScript
-- **Data Fetching**: React Query / SWR
+- **Data Fetching**: React Query 
 - **Styling**: TailwindCSS, shadcn/ui 
 - **Charts**: Recharts 
 - **API**: CoinGecko 
@@ -49,7 +49,6 @@ A real-time cryptocurrency dashboard built with **Next.js**, **TypeScript**, **T
 
 ### 📦 Caching Strategy
 - Coin list cached for 1 minute
-- Refetches on tab focus
 - Uses React Query/SWR background polling
 
 ### 💅 UI/UX
@@ -68,3 +67,15 @@ A real-time cryptocurrency dashboard built with **Next.js**, **TypeScript**, **T
 
 ## 📁 Folder Structure
 
+.
+├── app/
+│   ├── page.tsx               # Home (can redirect to dashboard)
+│   ├── dashboard/             # Crypto list page
+│   └── dashboard/[id]/        # Coin detail 
+├── components/                # Reusable UI components
+├── hooks/                     # Custom React hooks
+├── lib/                       # API and utility helpers
+├── services/                  # API service handlers
+├── types/                     # TypeScript types and interfaces
+├── @data/                     # Static or mock data (e.g. test coins, defaults)
+└── public/                    # Static assets (images, icons, etc.)

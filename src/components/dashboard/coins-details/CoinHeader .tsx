@@ -18,7 +18,7 @@ const CoinHeader = ({ coin, priceChange24h }: CoinHeaderProps) => {
 
   return (
     <Card className="mb-6">
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
+      <CardHeader className="flex flex-row items-center px-4 md:px-6 justify-between pb-2">
         <div className="flex items-center space-x-4">
           <Image
             src={coin?.image.large}
@@ -28,7 +28,7 @@ const CoinHeader = ({ coin, priceChange24h }: CoinHeaderProps) => {
             className="w-12 h-12 rounded-full"
           />
           <div>
-            <CardTitle className="text-2xl">{coin?.name}</CardTitle>
+            <CardTitle className=" text-xl md:text-2xl">{coin?.name}</CardTitle>
             <CardDescription className="flex items-center">
               <Badge variant="outline" className="mr-2">
                 {coin.symbol.toUpperCase()}
@@ -39,7 +39,7 @@ const CoinHeader = ({ coin, priceChange24h }: CoinHeaderProps) => {
         </div>
 
         <div className="text-right">
-          <div className="text-2xl font-bold">
+          <div className=" text-xl md:text-2xl font-bold">
             ${coin?.market_data.current_price.usd.toLocaleString()}
           </div>
           <div
