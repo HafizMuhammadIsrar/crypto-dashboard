@@ -1,6 +1,7 @@
 // app/dashboard/coin/[id]/page.tsx
 
-import CoinDetailClient from "@/screens/coin-detail-client";
+import CoinDetailClient from "@/screens/coin-detail-screnn";
+
 
 
 

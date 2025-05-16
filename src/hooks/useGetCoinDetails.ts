@@ -1,6 +1,6 @@
 // hooks/useGetCoinDetails.ts
 import { useQuery } from '@tanstack/react-query';
-import DASHBOARD from '@/services/Dashboard';
+import DASHBOARD from '@/services/cryptoDashboard';
 
 export const useGetCoinDetails = (id: string) => {
   return useQuery({

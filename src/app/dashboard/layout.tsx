@@ -1,9 +1,14 @@
 // app/dashboard/layout.tsx
-import { AppSidebar } from "@/components/app-sidebar";
-import Header from "@/components/header";
+import { AppSidebar } from "@/components/AppSidebar";
+import Header from "@/components/TopHeader";
 import { ReactNode } from "react";
-
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Crypto Dashboard",
+  description: "crypto tracking app",
+};
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (

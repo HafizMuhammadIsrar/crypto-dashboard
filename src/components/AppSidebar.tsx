@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Bitcoin, House } from "lucide-react";
 
-import { NavProjects } from "@/components/nav-projects";
-import { TeamSwitcher } from "@/components/team-switcher";
+import { NavProjects } from "@/components/NavProjects";
+import { TeamSwitcher } from "@/components/TeamSwitcher";
 import {
   Sidebar,
   SidebarContent,
@@ -12,25 +11,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-
-// This is sample data.
-const data = {
-  teams: [
-    {
-      name: "Crypto Dashboard",
-      logo: Bitcoin,
-      plan: "Free",
-    },
-  ],
-
-  projects: [
-    {
-      name: "Dashboard",
-      url: "/dashboard",
-      icon: House,
-    },
-  ],
-};
+import { data } from "@/@data/sidebarData";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (

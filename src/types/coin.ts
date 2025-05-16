@@ -37,3 +37,28 @@ export interface ChartFormattedDataProps {
   date: Date;
   price: number;
 }
+
+export interface CoinMarketData {
+  market_cap: {
+    usd: number;
+  };
+  total_volume: {
+    usd: number;
+  };
+  circulating_supply: number;
+  total_supply: number | null;
+}
+
+export interface CoinData {
+  id: string;
+  symbol: string;
+  name: string;
+  market_data: CoinMarketData;
+}
+
+export interface PriceInfoCardProps {
+  coin: CoinData;
+}
+
+
+

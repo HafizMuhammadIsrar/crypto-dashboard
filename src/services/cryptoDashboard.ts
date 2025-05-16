@@ -2,8 +2,9 @@
 import axios from 'axios';
 
 export const authService = axios.create({
-  baseURL: 'https://api.coingecko.com/api/v3',
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
+
 
 const DASHBOARD = {
   getCoins: async () => {

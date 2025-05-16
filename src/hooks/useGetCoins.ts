@@ -1,5 +1,5 @@
 // hooks/useGetCoins.ts
-import DASHBOARD from '@/services/Dashboard';
+import DASHBOARD from '@/services/cryptoDashboard';
 import { useQuery } from '@tanstack/react-query';
 import { Coin } from '@/types/coin'; // adjust the path as needed
 

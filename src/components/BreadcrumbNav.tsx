@@ -39,18 +39,14 @@ const BreadcrumbNav = () => {
 
   return (
     <Breadcrumb>
-      <BreadcrumbList className=" !gap-1 " >
+      <BreadcrumbList className=" !gap-1 ">
         {breadcrumbs.map((crumb, index) => (
           <div key={index} className="flex items-center">
-            {index === 1 ? (
-              ""
-            ) : (
-              <div className="flex items-center gap-[2px] " >
+         <div className="flex items-center gap-[2px] ">
                 {" "}
                 {crumb}
                 {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
               </div>
-            )}
           </div>
         ))}
       </BreadcrumbList>
