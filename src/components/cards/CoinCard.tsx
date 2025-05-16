@@ -55,4 +55,4 @@ const CoinCard: FC<CoinCardProps> = ({ item, index }) => {
   );
 };
 
-export default CoinCard;
+export default CoinCard; 
