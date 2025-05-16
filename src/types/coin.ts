@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 // types/coin.ts
 export interface Coin {
   id: string;
@@ -58,6 +60,16 @@ export interface CoinData {
 
 export interface PriceInfoCardProps {
   coin: CoinData;
+}
+
+interface Project {
+  name: string;
+  url: string;
+  icon: LucideIcon;
+}
+
+export interface NavProjectsProps {
+  projects: Project[];
 }
 
 

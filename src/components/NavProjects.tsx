@@ -1,6 +1,5 @@
 "use client";
 
-import { type LucideIcon } from "lucide-react";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -10,16 +9,9 @@ import {
 } from "@/components/ui/sidebar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { NavProjectsProps } from "@/types/coin";
 
-export function NavProjects({
-  projects,
-}: {
-  projects: {
-    name: string;
-    url: string;
-    icon: LucideIcon;
-  }[];
-}) {
+export function NavProjects({ projects }: NavProjectsProps) {
   const pathname = usePathname();
 
   return (
@@ -27,7 +19,9 @@ export function NavProjects({
       <SidebarGroupLabel>Home</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map((item) => {
-          const isActive = pathname === item.url;
+          // Check if the current path starts with the item URL
+          // This makes it active for both exact matches and nested routes
+          const isActive = pathname === item.url || pathname.startsWith(`${item.url}/`);
 
           return (
             <SidebarMenuItem key={item.name}>

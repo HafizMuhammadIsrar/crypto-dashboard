@@ -18,14 +18,14 @@ const CoinHeader = ({ coin, priceChange24h }: CoinHeaderProps) => {
 
   return (
     <Card className="mb-6">
-      <CardHeader className="flex flex-row items-center px-4 md:px-6 justify-between pb-2">
+      <CardHeader className="flex flex-col md:flex-row items-center px-4 md:px-6 justify-between pb-2">
         <div className="flex items-center space-x-4">
           <Image
             src={coin?.image.large}
             alt={coin?.name}
             width={100}
             height={100}
-            className="w-12 h-12 rounded-full"
+            className=" w-[70px] md:w-[100] h-[70px] md:h-[100] rounded-full"
           />
           <div>
             <CardTitle className=" text-xl md:text-2xl">{coin?.name}</CardTitle>
